@@ -22,11 +22,14 @@ def dumpItenerary(itenerary):
     
     totalRoute = " -> ".join(airports)
     print(totalRoute)
-    totalStops = 1
+    totalStops = len(stops)-1
     for stop in stops:
         totalStops += int(stop)
-    print(f"\t- {totalStops} Stops")
+    print(f"    - {totalStops} Stops")
     
+    firstFlightTime = departureTimes[0]
+    totalTime = julian_to_time(to_julian(arrivalTimes[-1]) - to_julian(departureTimes[0]))
+    print(f"    - {totalTime[0]}h{totalTime[1]}m")
 
     totalCost = 0
     try:
